@@ -21,9 +21,10 @@ module.exports = (app) => {
     app.post('/api/notes', (req, res) => {
         const note = req.body;
         data.push(note);
+        req.body.id = data.indexOf(note);
         fs.writeFile(path.join(__dirname, '../db/db.json'), JSON.stringify(data), (err, data) => {
             if (err) throw err;      
         });
         res.send(data);
-    });
+    }); 
 }
