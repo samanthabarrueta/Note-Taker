@@ -8,8 +8,9 @@ const app = express();
 const PORT = 9000;
 
 const run = (app) => {
-    htmlRoutes(app);
     routes(app);
+    htmlRoutes(app);
+
 }
 
 app.use(cors());
